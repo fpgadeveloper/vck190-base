@@ -205,14 +205,6 @@ if {$bd_script == "versal"} {
   set_property -name "steps.write_bitstream.args.verbose" -value "0" -objects $obj
 }
 
-# UZ-EV design requires post hook script
-if { $target == "uzev_dual" } {
-  add_files -fileset utils_1 -norecurse $origin_dir/scripts/uzev_post_hook.tcl
-  set_property STEPS.OPT_DESIGN.TCL.POST [ get_files $origin_dir/scripts/uzev_post_hook.tcl -of [get_fileset utils_1] ] [get_runs impl_1]
-  # Suppress the critical warnings generated when the post hook overrides the IP's LOCs
-  set_msg_config -id "Constraints 18-4427" -new_severity WARNING
-}
-
 # set the current impl run
 current_run -implementation [get_runs impl_1]
 

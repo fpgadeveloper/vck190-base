@@ -1,0 +1,10 @@
+*.log
+*.jou
+Vivado/.Xil/
+Vivado/*.str
+Vivado/vck190/
+RemoteSystemsTempFiles/
+PetaLinux/vck190/
+bootimages/
+PetaLinux/offline.txt
+
